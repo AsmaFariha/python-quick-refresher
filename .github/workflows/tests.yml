@@ -10,6 +10,7 @@ jobs:
           python-version: '3.11'
       - name: Mock OA reference solution scores 800/800
         working-directory: mock_oa
-        run: python tests.py --solution | tee out.txt && grep -q "SCORE: 800/800" out.txt
+        run: |
+          python tests.py --solution | tee out.txt && grep -q "SCORE: 800/800" out.txt
       - name: Drill answers all pass
         run: python drills/verify_answers.py
